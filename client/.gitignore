@@ -58,3 +58,5 @@ node_modules
 
 /coverage
 /third-party
+
+./src/config/

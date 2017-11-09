@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { landmarks }  from '../../data/landmarkCoord'
 import CONFIG from '../config/config';
 
 function setCoords(data){
@@ -11,6 +12,12 @@ function setCoords(data){
      .catch(err => console.log(err))
 }
 
-export default {  
-    setCoords
+function getPOI(){
+    return landmarks
 }
+
+export default {  
+    setCoords,
+    getPOI
+}
+

@@ -32,7 +32,8 @@ export default class Map extends Component {
         longitude: LONGITUDE,
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA,
-      }
+      },
+      poiCoords:[]
     };
   }
   componentDidMount() {
@@ -60,15 +61,18 @@ export default class Map extends Component {
             longitudeDelta: LONGITUDE_DELTA,
           }
         });
-        POIService.setCoords({lat:this.state.region.latitude,long:this.state.region.longitude})
+        // POIService.setCoords({lat:this.state.region.latitude,long:this.state.region.longitude})
       }
     );
+
+    this.setState({poiCoords:POIService.getPOI()})
   }
   
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);
   }
   render() {
+    const poiCoords = this.state.poiCoords || [];
     return (
       <MapView
         style={ styles.map }
@@ -77,9 +81,13 @@ export default class Map extends Component {
         onRegionChange={ region => this.setState({region}) }
         onRegionChangeComplete={ region => this.setState({region}) }
       >
-        <MapView.Marker
-          coordinate={ this.state.region }
-        />
+      {poiCoords.map(marker => (
+      <MapView.Marker
+        coordinate={{latitude:marker.the_geom.coordinates[1],longitude:marker.the_geom.coordinates[0]}}
+        title={marker.lm_name}
+        description={marker.desig_addr}
+      />
+    ))}
       </MapView>
     );
   }
