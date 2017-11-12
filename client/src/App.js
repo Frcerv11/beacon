@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import Map from './screens/Map';
+import { Root } from './config/router.js'
 
 export default class App extends Component {
 
@@ -29,10 +30,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Map/>
-      </View>
-      
+     <Root/>
     );
   }
 }

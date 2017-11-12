@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "beacon-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,13 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
+  "engines": {
+    "node": "7.6.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
+    "ejs": "^2.5.7",
     "express": "^4.16.2",
     "mongoose": "^4.12.2",
+    "nodemon": "^1.12.1",
     "react-file-reader": "^1.1.3"
   }
 }
