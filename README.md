@@ -1,2 +1,2 @@
-# GH-Project
-GH-Project
+# Beacon: Mobile App
+Built With React Native
